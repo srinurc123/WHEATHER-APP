@@ -1,0 +1,418 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", "Segoe UI", sans-serif;
+}
+
+/* Body with Gradient Background */
+body {
+  background: linear-gradient(135deg, #121212b9, #e3e4e8);
+  min-height: 100vh;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container for Centering Content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #09fa15;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Hero Section */
+.hero {
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Card Styles (Glassmorphism) */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px 0;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* Title Styles */
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+/* Form and Input Styles */
+#weatherForm .input-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+input {
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+button {
+  padding: 12px 20px;
+  background: #ffffff;
+  color: #333333;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #09fa15;
+  transform: translateY(-2px);
+}
+
+/* Error and Loading States */
+.error-message {
+  color: #ff4d4d;
+  font-size: 16px;
+  margin-top: 10px;
+  display: none;
+}
+
+.spinner {
+  display: none;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.spinner::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Weather Display */
+.weather-display {
+  padding: 20px 0;
+}
+
+.current-weather .weather-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.weather-icon img {
+  width: 80px;
+  height: 80px;
+}
+
+.weather-details p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+/* Hourly Forecast */
+.hourly-forecast .hourly-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.hourly-item {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.hourly-icon {
+  width: 40px;
+  height: 40px;
+  margin: 10px 0;
+}
+
+.hourly-temp {
+  font-size: 16px;
+}
+
+/* Daily Forecast */
+.daily-forecast .daily-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.daily-item {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.daily-icon {
+  width: 50px;
+  height: 50px;
+  margin: 10px 0;
+}
+
+.daily-temp,
+.daily-description {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* About Section */
+.about {
+  padding: 40px 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contact Section */
+.contact {
+  padding: 40px 0;
+}
+
+.contact h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#contactForm .input-group {
+  margin-bottom: 20px;
+}
+
+#contactForm label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+#contactForm textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Footer Styles */
+footer {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 40px 0;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section ul {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #09fa15;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  font-size: 20px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hourly-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hourly-item {
+    width: 100%;
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

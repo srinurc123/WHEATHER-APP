@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A modern weather forecast app providing current weather, hourly, and 5-day forecasts for any city." />
+  <meta name="keywords" content="weather, forecast, app, current weather, hourly forecast, 5-day forecast" />
+  <meta name="author" content="Weather Forecast Team" />
+  <title>Weather Forecast App</title>
+  <link rel="stylesheet" href="wheather.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>  🌤️ Weather Forecast App</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home" aria-label="Home">Home</a></li>
+        <li><a href="#about" aria-label="About">About</a></li>
+        <li><a href="#contact" aria-label="Contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle Dark Mode">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="card glass">
+          <h2 class="title">Check the Weather</h2>
+          <form id="weatherForm" aria-label="Weather Search Form">
+            <div class="input-group">
+              <label for="cityInput" class="sr-only">Enter city name</label>
+              <input 
+                type="text" 
+                id="cityInput" 
+                placeholder="Enter city name (e.g., New York)" 
+                aria-required="true" 
+                autocomplete="off"
+                required 
+              />
+              <button type="submit" aria-label="Search for city weather">Search</button>
+            </div>
+          </form>
+          <div id="errorMessage" class="error-message" role="alert"></div>
+          <div id="loadingSpinner" class="spinner" role="status" aria-live="polite">
+            <span>Loading...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="weather-display" id="weatherResult" aria-live="polite">
+      <div class="container">
+        <!-- Current Weather -->
+        <div class="card glass current-weather">
+          <h3 class="section-title">Current Weather</h3>
+          <div class="weather-info">
+            <div class="weather-icon">
+              <img id="currentWeatherIcon" src="" alt="Current weather icon" />
+            </div>
+            <div class="weather-details">
+              <h4 id="cityName">City Name</h4>
+              <p id="currentTemp">Temperature: --°C</p>
+              <p id="currentDescription">Description: --</p>
+              <p id="currentHumidity">Humidity: --%</p>
+              <p id="currentWind">Wind Speed: -- km/h</p>
+            </div>
+          </div>
+        </div>
+        <!-- Hourly Forecast -->
+        <div class="card glass hourly-forecast">
+          <h3 class="section-title">Hourly Forecast</h3>
+          <div class="hourly-container" id="hourlyForecast">
+            <div class="hourly-item">
+              <p class="hour">12:00</p>
+              <img src="" alt="Hourly weather icon" class="hourly-icon" />
+              <p class="hourly-temp">--°C</p>
+            </div>
+            <div class="hourly-item">
+              <p class="hour">13:00</p>
+              <img src="" alt="Hourly weather icon" class="hourly-icon" />
+              <p class="hourly-temp">--°C</p>
+            </div>
+            <div class="hourly-item">
+              <p class="hour">14:00</p>
+              <img src="" alt="Hourly weather icon" class="hourly-icon" />
+              <p class="hourly-temp">--°C</p>
+            </div>
+            <div class="hourly-item">
+              <p class="hour">15:00</p>
+              <img src="" alt="Hourly weather icon" class="hourly-icon" />
+              <p class="hourly-temp">--°C</p>
+            </div>
+          </div>
+        </div>
+        <!-- 5-Day Forecast -->
+        <div class="card glass daily-forecast">
+          <h3 class="section-title">5-Day Forecast</h3>
+          <div class="daily-container" id="dailyForecast">
+            <div class="daily-item">
+              <p class="day">Monday</p>
+              <img src="" alt="Daily weather icon" class="daily-icon" />
+              <p class="daily-temp">High: --°C | Low: --°C</p>
+              <p class="daily-description">Description: --</p>
+            </div>
+            <div class="daily-item">
+              <p class="day">Tuesday</p>
+              <img src="" alt="Daily weather icon" class="daily-icon" />
+              <p class="daily-temp">High: --°C | Low: --°C</p>
+              <p class="daily-description">Description: --</p>
+            </div>
+            <div class="daily-item">
+              <p class="day">Wednesday</p>
+              <img src="" alt="Daily weather icon" class="daily-icon" />
+              <p class="daily-temp">High: --°C | Low: --°C</p>
+              <p class="daily-description">Description: --</p>
+            </div>
+            <div class="daily-item">
+              <p class="day">Thursday</p>
+              <img src="" alt="Daily weather icon" class="daily-icon" />
+              <p class="daily-temp">High: --°C | Low: --°C</p>
+              <p class="daily-description">Description: --</p>
+            </div>
+            <div class="daily-item">
+              <p class="day">Friday</p>
+              <img src="" alt="Daily weather icon" class="daily-icon" />
+              <p class="daily-temp">High: --°C | Low: --°C</p>
+              <p class="daily-description">Description: --</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="container">
+        <h2>About the Weather Forecast App</h2>
+        <p>
+          Our Weather Forecast App provides accurate and real-time weather updates for any city worldwide.
+          Powered by a reliable weather API, it offers current conditions, hourly forecasts, and a 5-day outlook.
+          Stay prepared with our intuitive and user-friendly interface.
+        </p>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contactForm" aria-label="Contact Form">
+          <div class="input-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" placeholder="Your Name" required />
+          </div>
+          <div class="input-group">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" placeholder="Your Email" required />
+          </div>
+          <div class="input-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          <button type="submit" aria-label="Send Message">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Weather Forecast App</h4>
+          <p>Providing reliable weather updates since 2024.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">&copy; 2025 Weather Forecast App. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="wheather.js"></script>
+</body>
+</html>
